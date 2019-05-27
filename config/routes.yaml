@@ -1,0 +1,47 @@
+# This file is the entry point to configure your own HTTP routes.
+# Files in the routes/ subdirectory configure the routes for your dependencies.
+
+#index:
+#    path: /
+#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+
+
+frontend_main:
+  path: /
+  defaults: { _controller: 'App\Controller\MainController::index' }
+  methods:  [GET]
+
+login:
+  path: /login
+  defaults: { _controller: 'App\Controller\AdminController::loginAction' }
+  methods:  [GET]
+
+auth_login:
+  path: /login
+  defaults: { _controller: 'App\Controller\AdminController::authLoginAction' }
+  methods:  [POST]
+
+auth_logout:
+  path: /logout
+  defaults: { _controller: 'App\Controller\AdminController::authLogoutAction' }
+  methods:  [GET]
+
+dashboard:
+  path: /dashboard
+  defaults: { _controller: 'App\Controller\DashboardController::indexAction' }
+
+delete_post:
+  path: /dashboard/post/delete
+  defaults: { _controller: 'App\Controller\DashboardController::deletePostAction' }
+  methods:  [POST]
+
+edit_post:
+  path: dashboard/post/edit/{id}
+  defaults: { _controller: 'App\Controller\DashboardController::editPostAction' }
+  methods:  [GET]
+
+save_post_data:
+  path: dashboard/post/edit
+  defaults: { _controller: 'App\Controller\DashboardController::savePostDataAction' }
+  methods:  [POST]
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{  asset('css/blog-home.css') }}" rel="stylesheet">
+
+    <style>
+        .login-container{
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+        .login-form-1{
+            padding: 5%;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+        .login-form-1 h3{
+            text-align: center;
+            color: #333;
+        }
+        .login-form-2{
+            padding: 5%;
+            background: #0062cc;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+        .login-form-2 h3{
+            text-align: center;
+            color: #fff;
+        }
+        .login-container form{
+            padding: 10%;
+        }
+        .btnSubmit
+        {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            border: none;
+            cursor: pointer;
+        }
+        .login-form-1 .btnSubmit{
+            font-weight: 600;
+            color: #fff;
+            background-color: #0062cc;
+        }
+        .login-form-2 .btnSubmit{
+            font-weight: 600;
+            color: #0062cc;
+            background-color: #fff;
+        }
+        .login-form-2 .ForgetPwd{
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .login-form-1 .ForgetPwd{
+            color: #0062cc;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ asset('login') }}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Login to admin dashboard</h3>
+
+            <!--
+            <form name="form" method="post">
+                <div id="form">
+                    <div>
+                        <label for="form_login" class="required">Login</label>
+                        <input type="text" id="form_login" name="form[login]" required="required">
+                    </div>
+                    <div>
+                        <label for="form_password" class="required">Password</label>
+                        <input type="password" id="form_password" name="form[password]" required="required">
+                    </div>
+                    <div>
+                        <button type="submit" id="form_submit" name="form[submit]">Login</button>
+                    </div>
+                </div>
+            </form>
+            -->
+
+
+            <form name="form" method="post">
+                <div class="form-group">
+                    {{ form_widget(form.login) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(form.password) }}
+                </div>
+                {{ form_widget(form.csrf_token) }}
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{  asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{  asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+</html>

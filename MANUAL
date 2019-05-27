@@ -1,0 +1,51 @@
+Symfony 4 and Doctrine Mongo DB
+
+1. symfony new --version=3.3 symfony.loc
+2. composer require symfony/orm-pack - install Doctrine
+3. Install MongoDB bundles
+    - composer require alcaeus/mongo-php-adapter
+    - composer require doctrine/mongodb-odm-bundle ([y] Yes)
+4. Config
+    - config/packages/doctrine.yaml
+        add
+
+        doctrine_mongodb:
+            connections:
+                default:
+                    server: "%mongodb_server%"
+                    options: {}
+            default_database: yourdbnamehere
+            document_managers:
+                default:
+                    auto_mapping: true
+                    mappings:
+                        App:
+                            is_bundle: false
+                            type: annotation
+                            dir: '%kernel.project_dir%/src/Document'
+                            prefix: 'App\Document'
+                            alias: App
+
+    - config/services.yaml
+        add
+
+        parameters:
+          mongodb_server: "mongodb://localhost:27017"
+
+        services:
+
+5. Set Writable the cache directory
+
+# sudo chmod -R 777 var/cache/
+
+6. Install maker - composer require symfony/maker-bundle
+
+7. Install twig - composer require symfony/twig-bundle
+
+8. Install asset - composer require symfony/asset
+
+Dont forget set writable to cache directory - #sudo chmod -R 777 var/cache
+
+9. Install Security - composer require symfony/security
+
+10. sudo service mongod start
